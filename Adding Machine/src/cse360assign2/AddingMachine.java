@@ -9,10 +9,17 @@
 
 package cse360assign2;
 
-/*	This class contains a private variable and six methods
+/*	This class contains a three private variables and six methods
  
  	<int total>
 	This variable holds the total amount in the account after processing transactions
+	
+	<String transactionHistory>
+	This variable holds the history of transactions of the account
+	
+	<String temp>
+	This variable holds the value added or subtracted to the account as a string to add
+	to the transaction history.
 	
 	<AddingMachine()>
 	This method is the constructor, setting the total to 0
@@ -27,7 +34,7 @@ package cse360assign2;
 	This method subtracts an amount from the total
 	
 	<toString()>
-	This method returns the transaction history which is defaulted as an empty string
+	This method returns the current transaction history
 	
 	<clear()>
 	This method clears the transaction history 
@@ -36,39 +43,52 @@ package cse360assign2;
 
 public class AddingMachine {
 
-	private int total;
+	private int total = 0;
+	private String transactionHistory = "0 ";
+	private String temp;
 	
 	// Constructor for setting the total to a default value
-	public AddingMachine () {
+	public AddingMachine () 
+	{
 		total = 0;  // not needed - included for clarity
 	}
 	
 	// obtains the total and returns it
-	// @return 0: starting total amount is 0
-	public int getTotal () {
-		return 0;
+	// @return total: total amount in account is returned
+	public int getTotal () 
+	{
+		return total;
 	}
 	
 	// adds the parameter value to the total
 	// @param value: amount to be added to the total
-	public void add (int value) {
+	public void add (int value) 
+	{
+		total = total + value;
+		temp = String.valueOf(value);
+		transactionHistory = transactionHistory + "+ " + temp + "";
 		
 	}
 	
 	// subtracts the parameter value to the total
 	// @param value: amount to be subtracted from the total
-	public void subtract (int value) {
-		
+	public void subtract (int value) 
+	{
+		total = total - value;
+		temp = String.valueOf(value);
+		transactionHistory = transactionHistory + "- " + temp + "";
 	}
 		
 	// obtains and returns the transaction history
-	// @return "": transaction history is defaulted to an empty string
-	public String toString () {
-		return "";
+	// @return transactionHistory: current transaction history is returned
+	public String toString () 
+	{
+		return transactionHistory;
 	}
 	
 	// clears the current transaction history
-	public void clear() {
-	
+	public void clear() 
+	{
+		transactionHistory = "0 ";
 	}
 }
