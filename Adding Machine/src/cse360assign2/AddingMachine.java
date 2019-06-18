@@ -43,7 +43,7 @@ package cse360assign2;
 
 public class AddingMachine {
 
-	private int total = 0;
+	private int total;
 	private String transactionHistory = "0 ";
 	private String temp;
 	
