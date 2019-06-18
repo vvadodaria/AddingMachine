@@ -89,6 +89,7 @@ public class AddingMachine {
 	// clears the current transaction history
 	public void clear() 
 	{
+		total = 0;
 		transactionHistory = "0 ";
 	}
 }
